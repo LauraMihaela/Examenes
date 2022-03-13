@@ -18,8 +18,21 @@ public class TratarPrecipitaciones {
 		return precipitacionAnual;
 	}
 	
-	public static int[] obtenerPromedioMensual (int[][] precipitaciones) {
-		return null;
+	public static int[] obtenerPromedioMensual(int[][] precipitaciones) {
+		int[] promedioMensual = new int[precipitaciones[0].length];
+		int suma = 0;
+		int promedio = 0;
+		for (int j = 0; j < precipitaciones[0].length; j++) {
+			for (int i = 0; i < precipitaciones.length; i++) {
+				suma = suma + precipitaciones[i][j];
+				promedio = (int) (suma / precipitaciones.length);
+			}
+			promedioMensual[j] = promedio;
+			suma = 0;
+		}
+
+		return promedioMensual;
+
 	}
 	
 	public static int[] obtenerMesesExtremos (int[][] precipitaciones, int localidad) {
